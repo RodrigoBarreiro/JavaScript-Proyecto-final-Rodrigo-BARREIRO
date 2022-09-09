@@ -53,14 +53,14 @@ console.log ( "El precio abonar es de " + precioFinal);
 
 // ARREGLO CON CERVEZAS
 const cervezas = [
-    {id: 1, nombre: "Witbier", precio: 300, envase: "1 lts", stock: 10 },
-    {id: 2, nombre: "Pale Ale", precio: 450, envase: "1 lts", stock: 20 },
-    {id: 3, nombre: "Wite IPA", precio: 400, envase: "1 lts", stock: 40 },
-    {id: 4, nombre: "Dry Stout", precio: 300, envase: "1 lts", stock: 12 },
-    {id: 5, nombre: "K7 Doble IPA", precio: 290, envase: "1 lts", stock: 30 },
-    {id: 6, nombre: "174 IPA", precio: 380, envase: "1 lts", stock: 20 },
-    {id: 7, nombre: "Garaje Brown ALE", precio: 380, envase: "1 lts", stock: 12 },
-    {id: 8, nombre: "LIMA pale ALE", precio: 450, envase: "1 lts", stock: 15 },
+    {id: 1, nombre: "Witbier", precio: 300, envase: "1 lts", marca: "Oceanica", stock: 10 },
+    {id: 2, nombre: "Pale Ale", precio: 450, envase: "1 lts",marca: "Oceanica", stock: 20 },
+    {id: 3, nombre: "Wite IPA", precio: 400, envase: "1 lts",marca: "Oceanica", stock: 40 },
+    {id: 4, nombre: "Dry Stout", precio: 300, envase: "1 lts",marca: "Oceanica", stock: 12 },
+    {id: 5, nombre: "K7 Doble IPA", precio: 290, envase: "1 lts",marca: "Barbarian", stock: 30 },
+    {id: 6, nombre: "174 IPA", precio: 380, envase: "1 lts",marca: "Barbarian", stock: 20 },
+    {id: 7, nombre: "Garaje Brown ALE", precio: 380, envase: "1 lts",marca: "Barbarian", stock: 12 },
+    {id: 8, nombre: "LIMA pale ALE", precio: 450, envase: "1 lts",marca: "Barbarian", stock: 15 },
 ]
 
 console.log(cervezas);
@@ -85,3 +85,26 @@ const carrito = [
 
 let total = carrito.reduce (( acumulador, item) => acumulador + item.precio, 0);
 console.log("Usted debe abonar un total de " + total);
+
+//FILTRADO DE CARRITO POR PRECIO
+let seleccionCarrito = carrito.filter (item => item.precio > 300);
+console.log (seleccionCarrito);
+
+//FILTRADO DE STOCK TOTAL POR PRECIO
+let seleccionDeStock = cervezas.filter (item => item.precio > 350);
+console.log (seleccionDeStock);
+
+//BUSQUEDA DE CERVEZA POR MARCA PORFAVOR DESCOMENTRA PARA CORRERLO POR HTML
+
+/* let marca1 = prompt ("ingrese la marca del producto a buscar").toLowerCase();
+let producto = cervezas.filter (item => item.marca.toLowerCase() === marca1);
+let mensajeFinal = producto.reduce ((acumulador, item) => {
+    let mensaje = `
+Nombre: ${item.nombre}
+Precio: ${item.precio}
+Marca: ${item.marca}
+`;
+return acumulador + mensaje;
+} ,""
+    )
+alert(mensajeFinal); */
